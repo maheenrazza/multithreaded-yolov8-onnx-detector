@@ -13,14 +13,11 @@ A multi-threaded C++ object detection pipeline using a YOLOv8 **ONNX** model. Th
   - NMS IoU threshold (`--nms`)
 - ✅ Graceful shutdown (`Ctrl+C`)
 
----
-
 ## Demo
 
 
-- `assets/screenshot.png`
+- `assets/screenshot .png`
 
----
 
 ## Requirements
 
