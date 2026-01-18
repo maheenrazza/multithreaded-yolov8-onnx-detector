@@ -1,0 +1,31 @@
+to build docker
+make docker-build
+
+to run docker 
+docker run --rm -it -v ${PWD}:/app inference_engine bash
+
+inside docker first run
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/app/onnxruntime-linux-x64-1.17.0/lib
+
+for macos
+
+# Build the image for linux/amd64 and load it locally
+#    --load makes the built image available in the local docker daemon (good for testing).
+docker buildx build --platform=linux/amd64 -t inference_engine:amd64 --load .
+
+# Run the container (mount current folder). Use "$(pwd)" on macOS for the host path.
+docker run --rm -it --platform=linux/amd64 \
+    -v "$(pwd)":/app inference_engine:latest bash
+
+
+the files are already compiled 
+
+./inference_engine --model yolov8n.onnx --video ../data/cctv052x2004080516x01638.avi --conf 0.3 (runs whole pipeline)
+
+to run individual tests
+
+make test-inferengine
+make test-preprocess
+make test-nms
+make test-framequeue 
+
