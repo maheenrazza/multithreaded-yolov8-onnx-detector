@@ -16,7 +16,7 @@ A multi-threaded C++ object detection pipeline using a YOLOv8 **ONNX** model. Th
 ## Demo
 
 
-- `assets/screenshot .png`
+- `screenshot .png`
 
 
 ## Requirements
